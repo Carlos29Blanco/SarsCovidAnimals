@@ -33,9 +33,9 @@ require([
   Query,
   Graphic) => {
 
-  // Request feature layers and overwrite renderer https://gis.inia.es/server/rest/services/Hosted/SARS_animals_OIE/FeatureServer
+  // Request feature layers and overwrite renderer 
   const featureLayerBrotes = new FeatureLayer({
-    url: "https://gis.inia.es/server/rest/services/CISA/capa_sars_XY/MapServer/0",
+    url: "https://gis.inia.es/server/rest/services/Hosted/SARS_animals_OIE/FeatureServer",
     copyright: "Carlos Blanco Urbina",
     title: "Brotes",
     outFields: ['*'],
@@ -47,13 +47,13 @@ require([
 
       symbol: {
           type: "simple-marker",
-          label: "Type_animal",
+          label: "Type animal",
           style: "circle",
           size: "20px",
           outline: null,
       },
 
-      label: "Type_animal",
+      label: "Type animal",
       visualVariables: [
 
           {
@@ -93,7 +93,7 @@ require([
       returnGeometry: true,
       fieldInfos: [
         {
-          fieldName: 'Reporting_date',
+          fieldName: 'reporting_date',
           format: {
             dateFormat: 'short-date'
           }
@@ -105,13 +105,13 @@ require([
 
   function getInfoBrotes(feature) {
     content = "<p>Número de casos: <b>{cases}</b> " +
-      "<ul><li>Region: {Region}.</li>" +
-      "<ul><li>Country: {Country}.</li>" +
-      "<ul><li>Location: {Location_name}.</li>" +
-      "<li>Report date: {Reporting_date}.</li>" +
+      "<ul><li>Region: {region}.</li>" +
+      "<ul><li>Country: {country}.</li>" +
+      "<ul><li>Location: {location_name}.</li>" +
+      "<li>Report date: {reporting_date}.</li>" +
       "<li>Species: {Species}.</li>" +
-      "<li>Scientific name: {Scientific_name}.</li>" +
-      "<li>Type animal: {Type_animal}.</li>" ;
+      "<li>Scientific name: {scientific_name}.</li>" +
+      "<li>Type animal: {type_animal}.</li>" ;
 
     return content;
 
